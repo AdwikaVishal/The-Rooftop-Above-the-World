@@ -1,0 +1,400 @@
+.dreamscape-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  color: var(--cream);
+  background: #080c1b;
+  touch-action: none;
+}
+
+.dreamscape-canvas,
+.dreamscape-loading,
+.dreamscape-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.dreamscape-canvas {
+  display: block;
+}
+
+.dreamscape-loading,
+.dreamscape-fallback {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(60% 45% at 50% 35%, rgba(74, 83, 123, 0.32), transparent 72%),
+    #080c1b;
+  color: var(--cream-soft);
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-style: italic;
+  text-align: center;
+}
+
+.dreamscape-topbar {
+  position: absolute;
+  top: max(90px, calc(env(safe-area-inset-top) + 76px));
+  left: clamp(18px, 3.2vw, 42px);
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dreamscape-exit-button {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 13px;
+  border: 1px solid rgba(242, 200, 121, 0.38);
+  border-radius: 999px;
+  color: var(--cream);
+  background: rgba(13, 18, 36, 0.82);
+  backdrop-filter: blur(12px);
+  font-size: 12px;
+  box-shadow: 0 8px 24px rgba(5, 8, 18, 0.22);
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.dreamscape-exit-button svg {
+  color: var(--amber);
+}
+
+.dreamscape-exit-button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(242, 200, 121, 0.62);
+  background: rgba(28, 35, 63, 0.94);
+}
+
+.dreamscape-icon-button,
+.dreamscape-guide > button:first-child,
+.dreamscape-inspect > button:first-child {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--cream-soft);
+  background: rgba(13, 18, 36, 0.68);
+  backdrop-filter: blur(12px);
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.dreamscape-icon-button:hover,
+.dreamscape-guide > button:first-child:hover,
+.dreamscape-inspect > button:first-child:hover {
+  color: var(--cream);
+  border-color: rgba(242, 200, 121, 0.42);
+  background: rgba(28, 35, 63, 0.86);
+}
+
+.dreamscape-guide,
+.dreamscape-discovery,
+.dreamscape-inspect {
+  position: absolute;
+  z-index: 8;
+  border: 1px solid rgba(195, 185, 232, 0.18);
+  border-radius: 18px;
+  background:
+    radial-gradient(120% 90% at 0% 0%, rgba(74, 83, 123, 0.2), transparent 65%),
+    rgba(13, 18, 36, 0.82);
+  box-shadow: 0 18px 50px rgba(2, 5, 13, 0.26);
+  backdrop-filter: blur(16px);
+}
+
+.dreamscape-guide {
+  top: max(138px, calc(env(safe-area-inset-top) + 124px));
+  left: clamp(18px, 3.2vw, 42px);
+  width: min(360px, calc(100vw - 36px));
+  padding: 23px 24px 20px;
+}
+
+.dreamscape-guide > button:first-child,
+.dreamscape-inspect > button:first-child {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+}
+
+.dreamscape-guide h3,
+.dreamscape-discovery h3,
+.dreamscape-inspect h3 {
+  padding-right: 28px;
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.dreamscape-guide p,
+.dreamscape-discovery > p:not(.dreamscape-eyebrow),
+.dreamscape-inspect > p:not(.dreamscape-eyebrow) {
+  margin-top: 9px;
+  color: rgba(245, 235, 221, 0.68);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.dreamscape-guide .dreamscape-eyebrow,
+.dreamscape-eyebrow {
+  margin-bottom: 7px;
+  color: rgba(195, 185, 232, 0.68);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.dreamscape-discovery {
+  bottom: max(104px, calc(env(safe-area-inset-bottom) + 98px));
+  left: clamp(18px, 3.2vw, 42px);
+  width: min(350px, calc(100vw - 36px));
+  padding: 20px 22px;
+}
+
+.dreamscape-trace-status {
+  color: var(--amber) !important;
+}
+
+.dreamscape-star-keys {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.dreamscape-star-keys button {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid rgba(195, 185, 232, 0.22);
+  border-radius: 50%;
+  color: var(--cream);
+  background: rgba(195, 185, 232, 0.08);
+  font-size: 11px;
+}
+
+.dreamscape-star-keys button:hover {
+  border-color: rgba(242, 200, 121, 0.5);
+  background: rgba(242, 200, 121, 0.13);
+}
+
+.dreamscape-destinations,
+.dreamscape-constellations {
+  position: absolute;
+  z-index: 8;
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid rgba(195, 185, 232, 0.15);
+  border-radius: 999px;
+  background: rgba(13, 18, 36, 0.7);
+  backdrop-filter: blur(14px);
+}
+
+.dreamscape-destinations {
+  bottom: max(24px, calc(env(safe-area-inset-bottom) + 20px));
+  left: 50%;
+  max-width: calc(100vw - 36px);
+  overflow-x: auto;
+  transform: translateX(-50%);
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
+}
+
+.dreamscape-destinations button,
+.dreamscape-constellations button {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 7px;
+  min-height: 34px;
+  padding: 0 11px;
+  border-radius: 999px;
+  color: rgba(245, 235, 221, 0.68);
+  font-size: 10px;
+  white-space: nowrap;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.dreamscape-destinations button:hover,
+.dreamscape-destinations button.is-selected,
+.dreamscape-constellations button:hover {
+  color: var(--cream);
+  background: rgba(195, 185, 232, 0.12);
+}
+
+.dreamscape-destinations button > span {
+  color: var(--amber);
+}
+
+.dreamscape-constellations {
+  right: clamp(18px, 3.2vw, 42px);
+  bottom: max(112px, calc(env(safe-area-inset-bottom) + 106px));
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 16px;
+}
+
+.dreamscape-constellations button {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.dreamscape-constellations button.is-found {
+  color: var(--amber);
+}
+
+.dreamscape-constellations button > span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.dreamscape-control-hint {
+  position: absolute;
+  right: 50%;
+  bottom: max(78px, calc(env(safe-area-inset-bottom) + 72px));
+  z-index: 7;
+  color: rgba(245, 235, 221, 0.44);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-style: italic;
+  white-space: nowrap;
+  transform: translateX(50%);
+}
+
+.dreamscape-control-hint span {
+  padding: 0 4px;
+  color: var(--amber);
+}
+
+.dreamscape-telescope-shortcut {
+  position: absolute;
+  right: clamp(18px, 3.2vw, 42px);
+  bottom: max(24px, calc(env(safe-area-inset-bottom) + 20px));
+  z-index: 8;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 13px;
+  border: 1px solid rgba(242, 200, 121, 0.22);
+  border-radius: 999px;
+  color: rgba(245, 235, 221, 0.76);
+  background: rgba(13, 18, 36, 0.7);
+  font-size: 10px;
+  backdrop-filter: blur(14px);
+}
+
+.dreamscape-telescope-shortcut:hover {
+  color: var(--cream);
+  border-color: rgba(242, 200, 121, 0.46);
+}
+
+.dreamscape-inspect {
+  top: 50%;
+  left: 50%;
+  width: min(390px, calc(100vw - 36px));
+  padding: 24px;
+  transform: translate(-50%, -50%);
+  animation: riseIn 0.3s ease both;
+}
+
+.dreamscape-inspect h3 {
+  font-size: 25px;
+}
+
+@media (max-width: 760px) {
+  .dreamscape-topbar {
+    top: max(82px, calc(env(safe-area-inset-top) + 72px));
+  }
+
+  .dreamscape-discovery {
+    bottom: max(110px, calc(env(safe-area-inset-bottom) + 104px));
+    width: min(300px, calc(100vw - 36px));
+    padding: 16px 18px;
+  }
+
+  .dreamscape-constellations {
+    right: 14px;
+    bottom: max(110px, calc(env(safe-area-inset-bottom) + 104px));
+  }
+
+  .dreamscape-constellations button {
+    min-height: 30px;
+    padding: 0 8px;
+    font-size: 9px;
+  }
+
+  .dreamscape-destinations {
+    bottom: max(20px, calc(env(safe-area-inset-bottom) + 16px));
+    left: 14px;
+    width: calc(100vw - 28px);
+    transform: none;
+  }
+
+  .dreamscape-telescope-shortcut,
+  .dreamscape-control-hint {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .dreamscape-discovery {
+    right: 14px;
+    left: 14px;
+    bottom: max(234px, calc(env(safe-area-inset-bottom) + 228px));
+    width: auto;
+  }
+
+  .dreamscape-constellations {
+    right: 14px;
+    bottom: max(146px, calc(env(safe-area-inset-bottom) + 140px));
+    left: 14px;
+    flex-direction: row;
+    overflow-x: auto;
+    touch-action: pan-x;
+  }
+
+  .dreamscape-destinations {
+    bottom: max(78px, calc(env(safe-area-inset-bottom) + 72px));
+  }
+
+  .dreamscape-constellations button {
+    flex: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dreamscape-exit-button,
+  .dreamscape-icon-button,
+  .dreamscape-guide > button:first-child,
+  .dreamscape-inspect > button:first-child,
+  .dreamscape-star-keys button,
+  .dreamscape-destinations button,
+  .dreamscape-constellations button,
+  .dreamscape-telescope-shortcut {
+    transition: none;
+  }
+
+  .dreamscape-exit-button:hover {
+    transform: none;
+  }
+
+  .dreamscape-inspect {
+    animation: none;
+  }
+}
